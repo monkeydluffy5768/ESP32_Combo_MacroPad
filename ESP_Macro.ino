@@ -67,9 +67,7 @@ void setup() {
 }
 
 void loop() {
-  button.loop(); 
-  unsigned long startTime;
-  if (millis() - timer2 > 1000) {
+  if (millis() - timer2 > 10) {
     timer2 = millis();
     int adc = analogRead(batPin);
     vbat = adc * (3.3 / 4095.0) * 2;
@@ -88,11 +86,9 @@ void loop() {
   }
 
   if (xValue < LEFT_THRESHOLD) {
-    startTime = millis();
-    while(millis()<startTime+20) {
-      Mouse.move(-3,0);
-      delay(10);
-    }
+    Mouse.move(-3,0);
+    delay(10);
+    
     Serial.println("Move Left");
     // TODO do something here
   }
