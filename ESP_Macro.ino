@@ -16,7 +16,7 @@ int yValue = 0; // To store value of the Y axis
 int bValue = 0; // To store value of the button
 
 //BleKeyboard bleKeyboard("BLEkeyboard", "Manufacturer", 100);
-Adafruit_SSD1306 display(128, 32, &Wire, -1);
+Adafruit_SSD1306 display(128, 64, &Wire, -1);
 CRGB leds[NUM_LEDS];
 Menu menu;
 Layout layout;
@@ -92,7 +92,19 @@ void loop() {
     Serial.println("Move Left");
     // TODO do something here
   }
-
+  else if (xValue > RIGHT_THRESHOLD){
+    Mouse.move(3,0);
+    delay(10);
+  }
+  
+  if (yValue < UP_THRESHOLD) {
+    Mouse.move(0,3);
+  }  
+  else if (yValue > DOWN_THRESHOLD) {
+    Mouse.move(0,-3);
+    delay(10);
+  }
+  
     display.setTextSize(1);
     display.setCursor(110, 1);
     display.print(percentage);

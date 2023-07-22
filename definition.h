@@ -8,9 +8,9 @@
 
 
 #define LEFT_THRESHOLD  400
-#define RIGHT_THRESHOLD 800
+#define RIGHT_THRESHOLD 2300
 #define UP_THRESHOLD    400
-#define DOWN_THRESHOLD  800
+#define DOWN_THRESHOLD  2300
 
 
 #define R1 17
